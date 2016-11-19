@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import FiltersView from '../filters/FiltersView';
+import HotelsView from '../hotels/HotelsView';
 
 class HomePage extends React.Component {
     render() {
         return (
-            <div className="jumbotron">
-                <h1>Home Page</h1>
-                <p>Welcome to my home page</p>
-                <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
+            <div>
+                <FiltersView />
+                <HotelsView />
             </div>
         );
     }

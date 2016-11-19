@@ -1,17 +1,282 @@
-$color: #4d4d4d;
+$appColor: #fff;
+$appBlueColor: #1897E6;
+$appGrayColor: #F3F3F3;
+$appIconColor: #7A7A7A;
+$appFilterSelectionColor: $appBlueColor;
+$appFilterRatingStartSelectionColor: #F6A52B;
+$appFilterRatingEndSelectionColor: #0E7C11;
+$appFilterHighColor: #D2D2D2;
+$textColor: #000;
+$appLightGray: #d2d2d2;
+$appExtraLightGray: #eee;
+$appOrange: #FF4D1F;
 
-#app {
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    min-width: 550px;
-    max-width: 850px;
-    margin: 0 auto;
-    color: $color;
-}
+body {
+    background-color: $appGrayColor;
 
-a.active {
-    color: orange;
-}
+    #main-app {
+        margin: 0;
+        padding: 0;
 
-nav {
-    padding-top: 20px;
+        #header {
+            background-color: $appBlueColor;
+
+            h1.header-title {
+                color: $appColor;
+                margin: 0;
+                padding: 25px 0;
+                font-size: 16px;
+            }
+        }
+
+        .filters {
+            display: flex;
+            padding: 30px;
+
+            .filter-view {
+                flex: 1;
+
+                .filter-title {
+                    margin-bottom: 30px;
+
+                    .filter-title-icon {
+                        margin-right: 5px;
+                        color: $appIconColor;
+                        font-size: 16px;
+                    }
+                }
+
+                .slider {
+                    &.slider-horizontal {
+                        margin-left: 8px;
+                        width: calc(100% - 60px);
+                    }
+
+                    .slider-handle {
+                        width: 14px;
+                        height: 14px;
+                        background-color: $appColor;
+                        background-image: none;
+                        border: 3px solid $appBlueColor;
+                    }
+
+                    .slider-track {
+                        height: 4px;
+
+                        .slider-selection {
+                            background-color: $appFilterSelectionColor;
+                            background-image: none;
+                        }
+
+                        .slider-track-high {
+                            background-color: $appFilterHighColor;
+                            background-image: none;
+                        }
+                    }
+
+                    .tooltip {
+                        &.tooltip-main {
+                            opacity: 1;
+                        }
+
+                        &.top {
+                            margin-top: -28px;
+                        }
+
+                        .tooltip-arrow {
+                            display: none;
+                        }
+
+                        .tooltip-inner {
+                            background: transparent;
+                            color: $textColor;
+                            text-align: left;
+                        }
+                    }
+                }
+
+                &.rating {
+                    .slider {
+                        .slider-handle {
+                            border-color: $appFilterRatingEndSelectionColor;
+                        }
+
+                        .slider-track .slider-selection {
+                            background-image: linear-gradient(to right, $appFilterRatingStartSelectionColor 0, $appFilterRatingEndSelectionColor 100%)
+                        }
+                    }
+                }
+
+                &.price {
+                    .tooltip .tooltip-inner:before {
+                        font: normal normal normal 11px/1 FontAwesome;
+                        content: "\F153";
+                    }
+                }
+
+                &.distance {
+                    .tooltip .tooltip-inner:after {
+                        content: "km";
+                    }
+                }
+            }
+        }
+
+        .hotels {
+            padding-bottom: 20px;
+
+            .hotel-view {
+                margin: 20px 10px;
+                background-color: $appColor;
+                display: flex;
+
+                .hotel-photo-container {
+                    width: 320px;
+                    max-height: 260px;
+                    overflow: hidden;
+
+                    > img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .hotel-details-container {
+                    padding: 10px 15px;
+                    flex: 1;
+
+                    .hotel-name {
+                        font-size: 16px;
+                        font-weight: bold;
+                        margin: 0;
+                    }
+
+                    .hotel-stars {
+                        margin-top: 5px;
+
+                        .hotel-star {
+                            padding: 0 2px;
+
+                            .hotel-star-icon {
+                                color: $appLightGray;
+
+                                &.highlight {
+                                    color: $appOrange;
+                                }
+                            }
+                        }
+                    }
+
+                    .hotel-distance {
+                        margin-top: 15px;
+
+                        .hotel-distance-text {
+                            color: $appBlueColor;
+                            font-size: 15px;
+                            padding-left: 8px;
+                        }
+
+                        .hotel-distance-icon {
+                            color: $appBlueColor;
+                        }
+                    }
+
+                    .hotel-rating {
+                        margin-top: 3px;
+
+                        .hotel-rating-text {
+                            font-size: 15px;
+                            padding-left: 8px;
+                        }
+
+                        .hotel-rating-icon {
+                            color: $appFilterRatingStartSelectionColor;
+                        }
+                    }
+
+                    .hotel-amenities {
+                        margin-top: 15px;
+
+                        .list-group-item {
+                            background-color: $appExtraLightGray;
+                            border: 0;
+                            border-radius: 18px;
+                            font-size: 12px;
+                            padding: 10px 13px;
+                            margin: 0 5px 5px 0;
+                        }
+                    }
+                }
+
+                .hotel-offer-container {
+                    border-left: 1px solid $appGrayColor;
+                    padding: 10px 8px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .offer-old-rate {
+                        color: $appOrange;
+                    }
+
+                    .offer-new-rate {
+                        margin: 2px 0;
+                        font-size: 30px;
+                    }
+
+                    .offer-is-cancellation {
+                        color: $appFilterRatingEndSelectionColor;
+                        font-size: 13px;
+                        font-weight: bold;
+                    }
+
+                    .offer-book-button {
+                        margin-top: 6px;
+                        background-color: $appOrange;
+                        padding: 8px 40px;
+                        color: $appColor;
+                        font-size: 15px;
+                        font-weight: bold;
+                        border: 0;
+                        border-radius: 20px;
+
+                        .offer-book-button-arrow {
+                            margin-left: 8px;
+                        }
+                    }
+
+                    .offer-providers {
+                        margin: 15px 0 10px;
+                        min-width: 230px;
+
+                        .list-group-item {
+                            border: 0;
+                            font-size: 12px;
+                            padding: 0 0 7px 0;
+                            display: flex;
+
+                            .offer-provider-name {
+                                flex: 1
+                            }
+                        }
+                    }
+
+                    .offer-details-button {
+                        border: 0;
+                        background-color: transparent;
+                        font-size: 12px;
+                        font-weight: bold;
+
+                        .offer-details-icon {
+                            margin-left: 4px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .list-inline {
+            margin-left: 0;
+        }
+    }
 }

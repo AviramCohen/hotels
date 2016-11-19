@@ -1,23 +1,17 @@
-import React, { PropTypes }from 'react';
-import { Link, IndexLink } from 'react-router';
-import LoadingDots from '../common/LoadingDots';
+import React from 'react';
 
-const Header = ({loading}) => {
+const Header = ({}) => {
     return (
-        <nav>
-            <IndexLink to="/" activeClassName="active">Home</IndexLink>
-            {" | "}
-            <Link to="/about" activeClassName="active">About</Link>
-            {" | "}
-            <Link to="/courses" activeClassName="active">Courses</Link>
-            {loading && <LoadingDots interval={100} dots={20} />}
-        </nav>
-
+        <div id="header" className="row">
+            <div className="container">
+                <h1 className="header-title">FINDHOTEL</h1>
+            </div>
+        </div>
     );
 };
 
 Header.propTypes = {
-    loading: PropTypes.bool.isRequired
+    //myProp: PropTypes.type.isRequired
 };
 
 export default Header;
