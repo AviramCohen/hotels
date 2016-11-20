@@ -152,6 +152,19 @@ body {
                 margin: 20px 10px;
                 background-color: $appColor;
                 display: flex;
+                position: relative;
+
+                .hotel-great-offer {
+                    position: absolute;
+                    top: 10px;
+                    left: -6px;
+                    width: 141px;
+                    height: 36px;
+                    background-image: url('../images/badge.png');
+                    color: $appColor;
+                    padding: 4px 15px 0;
+                    text-transform: uppercase;
+                }
 
                 .hotel-photo-container {
                     width: 320px;

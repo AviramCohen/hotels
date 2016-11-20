@@ -10,6 +10,9 @@ class Hotel extends React.Component {
     render() {
         return (
             <div className="hotel-view row">
+                <div className="hotel-great-offer">
+                    <span>Great Offer</span>
+                </div>
                 <div className="hotel-photo-container">
                     <img src={this.props.hotel.images[0].large} />
                 </div>

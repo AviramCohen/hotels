@@ -84,7 +84,6 @@ function mapStateToProps(state, ownProps) {
         price: state.filters.price,
         rating: state.filters.rating,
         distance: state.filters.distance,
-        hotelsCount: state.hotels.length,
         sortBy: state.sortBy
     };
 }

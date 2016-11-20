@@ -1,15 +1,16 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import HotelOfferProviders from './HotelOfferProviders';
+import _ from 'lodash';
 
 const HotelOffer = ({offers}) => {
-    offers.sort(
+    const offersSorted = _.cloneDeep(offers).sort(
         function(a, b) {
             return a.totalRate - b.totalRate;
         }
     );
 
-    const mainOffer = offers[0];
+    const mainOffer = offersSorted[0];
 
     return (
         <div className="hotel-offer-container">
@@ -28,7 +29,7 @@ const HotelOffer = ({offers}) => {
                 {mainOffer.provider.name} <FontAwesome name="long-arrow-right" className="offer-book-button-arrow" />
             </button>
             <HotelOfferProviders
-                offers={offers} />
+                offers={offersSorted} />
             <button className="offer-details-button">
                 <span>Show details</span>
                 <FontAwesome name="caret-down" className="offer-details-icon" />

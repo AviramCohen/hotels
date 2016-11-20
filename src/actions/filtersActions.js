@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
+import * as actionsHelpers from './actionsHelpers';
 
 export function setFilterValueSuccess(filter, value) {
     return {
@@ -7,6 +8,20 @@ export function setFilterValueSuccess(filter, value) {
         payload: {
             value: value,
             filter
+        }
+    };
+}
+
+export function setFilters(hotels) {
+    const priceMax = actionsHelpers.getHotelsMinMaxRate(hotels, 'max'),
+        priceMin = actionsHelpers.getHotelsMinMaxRate(hotels, 'min');
+
+    return {
+        type: types.SET_FILTERS_PRICE_MIN_MAX,
+        payload: {
+            min: priceMin,
+            max: priceMax,
+            value: priceMax
         }
     };
 }
