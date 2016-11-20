@@ -5,9 +5,7 @@ export function setFilterValueSuccess(filter, value) {
     return {
         type: types.SET_FILTER_VALUE,
         payload: {
-            [filter]: {
-                value: value
-            },
+            value: value,
             filter
         }
     };

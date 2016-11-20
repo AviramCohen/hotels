@@ -30,94 +30,117 @@ body {
         }
 
         .filters {
-            display: flex;
-            padding: 30px;
+            padding: 30px 30px 10px;
 
-            .filter-view {
-                flex: 1;
+            .filters-container {
+                display: flex;
 
-                .filter-title {
-                    margin-bottom: 30px;
+                .filter-view {
+                    flex: 1;
 
-                    .filter-title-icon {
-                        margin-right: 5px;
-                        color: $appIconColor;
-                        font-size: 16px;
-                    }
-                }
+                    .filter-title {
+                        margin-bottom: 30px;
 
-                .slider {
-                    &.slider-horizontal {
-                        margin-left: 8px;
-                        width: calc(100% - 60px);
-                    }
-
-                    .slider-handle {
-                        width: 14px;
-                        height: 14px;
-                        background-color: $appColor;
-                        background-image: none;
-                        border: 3px solid $appBlueColor;
-                    }
-
-                    .slider-track {
-                        height: 4px;
-
-                        .slider-selection {
-                            background-color: $appFilterSelectionColor;
-                            background-image: none;
-                        }
-
-                        .slider-track-high {
-                            background-color: $appFilterHighColor;
-                            background-image: none;
+                        .filter-title-icon {
+                            margin-right: 5px;
+                            color: $appIconColor;
+                            font-size: 16px;
                         }
                     }
 
-                    .tooltip {
-                        &.tooltip-main {
-                            opacity: 1;
-                        }
-
-                        &.top {
-                            margin-top: -28px;
-                        }
-
-                        .tooltip-arrow {
-                            display: none;
-                        }
-
-                        .tooltip-inner {
-                            background: transparent;
-                            color: $textColor;
-                            text-align: left;
-                        }
-                    }
-                }
-
-                &.rating {
                     .slider {
+                        &.slider-horizontal {
+                            margin-left: 8px;
+                            width: calc(100% - 60px);
+                        }
+
                         .slider-handle {
-                            border-color: $appFilterRatingEndSelectionColor;
+                            width: 14px;
+                            height: 14px;
+                            background-color: $appColor;
+                            background-image: none;
+                            border: 3px solid $appBlueColor;
                         }
 
-                        .slider-track .slider-selection {
-                            background-image: linear-gradient(to right, $appFilterRatingStartSelectionColor 0, $appFilterRatingEndSelectionColor 100%)
+                        .slider-track {
+                            height: 4px;
+
+                            .slider-selection {
+                                background-color: $appFilterSelectionColor;
+                                background-image: none;
+                            }
+
+                            .slider-track-high {
+                                background-color: $appFilterHighColor;
+                                background-image: none;
+                            }
+                        }
+
+                        .tooltip {
+                            &.tooltip-main {
+                                opacity: 1;
+                            }
+
+                            &.top {
+                                margin-top: -28px;
+                            }
+
+                            .tooltip-arrow {
+                                display: none;
+                            }
+
+                            .tooltip-inner {
+                                background: transparent;
+                                color: $textColor;
+                                text-align: left;
+                            }
+                        }
+                    }
+
+                    &.rating {
+                        .slider {
+                            .slider-handle {
+                                border-color: $appFilterRatingEndSelectionColor;
+                            }
+
+                            .slider-track .slider-selection {
+                                background-image: linear-gradient(to right, $appFilterRatingStartSelectionColor 0, $appFilterRatingEndSelectionColor 100%)
+                            }
+                        }
+                    }
+
+                    &.price {
+                        .tooltip .tooltip-inner:before {
+                            font: normal normal normal 11px/1 FontAwesome;
+                            content: "\F153";
+                        }
+                    }
+
+                    &.distance {
+                        .tooltip .tooltip-inner:after {
+                            content: "km";
                         }
                     }
                 }
+            }
 
-                &.price {
-                    .tooltip .tooltip-inner:before {
-                        font: normal normal normal 11px/1 FontAwesome;
-                        content: "\F153";
+            .sorting-results-container {
+                margin-top: 30px;
+                font-size: 14px;
+
+                .sorting-text {
+                    &:not(:first-child) {
+                        padding-left: 6px;
+                    }
+
+                    &.best-deals {
+                        color: $appBlueColor;
+                        text-decoration: underline;
                     }
                 }
 
-                &.distance {
-                    .tooltip .tooltip-inner:after {
-                        content: "km";
-                    }
+                .select-box {
+                    margin-left: 6px;
                 }
             }
         }

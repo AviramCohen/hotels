@@ -7,7 +7,8 @@ const HotelDetails = ({hotel}) => {
     return (
         <div className="hotel-details-container">
             <h2 className="hotel-name">{hotel.name}</h2>
-            <HotelStars />
+            <HotelStars
+                stars={hotel.starRating} />
             <div className="hotel-distance">
                 <FontAwesome name="location-arrow" className="hotel-distance-icon" />
                 <span className="hotel-distance-text">120m to city centre</span>

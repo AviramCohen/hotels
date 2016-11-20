@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import HotelDetails from './HotelDetails';
 import HotelOffer from './HotelOffer';
 
@@ -28,16 +26,4 @@ Hotel.propTypes = {
     hotel: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state, ownProps) {
-    return {
-        state: state
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators({}, dispatch)
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Hotel);
+export default Hotel;

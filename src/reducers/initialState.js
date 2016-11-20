@@ -1,6 +1,7 @@
 export default {
     hotels: [],
     numAjaxCallsInProgress: 0,
+    sortBy: 'price',
     filters: {
         price: {
             max: 300,
@@ -9,8 +10,8 @@ export default {
         },
         rating: {
             max: 10,
-            min: 1,
-            value: 8
+            min: 0,
+            value: 2
         },
         distance: {
             max: 50,

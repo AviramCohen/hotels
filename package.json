@@ -1,7 +1,7 @@
 {
   "name": "find-hotel",
   "version": "1.0.0",
-  "description": "find hotel assignment",
+  "description": "find hotel app",
   "author": "Aviram Cohen",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",

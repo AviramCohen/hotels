@@ -3,6 +3,12 @@ import FontAwesome from 'react-fontawesome';
 import HotelOfferProviders from './HotelOfferProviders';
 
 const HotelOffer = ({offers}) => {
+    offers.sort(
+        function(a, b) {
+            return a.totalRate - b.totalRate;
+        }
+    );
+
     const mainOffer = offers[0];
 
     return (
